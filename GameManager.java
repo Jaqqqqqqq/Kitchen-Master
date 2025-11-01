@@ -1,7 +1,4 @@
-package mypackage;
-
 import javax.swing.*;
-import java.util.List;
 
 public class GameManager {
     private JFrame window;
@@ -27,27 +24,33 @@ public class GameManager {
     }
 
     public void startGame() {
-        gamePanel = new GamePanel(this); // Pass GameManager to GamePanel
-        window.setContentPane(gamePanel);
-        window.pack();
-        window.setSize(1280, 720);
+        try {
+            System.out.println("GameManager: startGame() called");
+            gamePanel = new GamePanel(this); // Pass GameManager to GamePanel
+            window.setContentPane(gamePanel);
+            window.pack();
+            window.setSize(1280, 720);
+            window.repaint();
 
-        gamePanel.requestFocusInWindow();
-        gamePanel.startGameThread();
+            gamePanel.requestFocusInWindow();
+            try {
+                gamePanel.startGameThread();
+                System.out.println("GameManager: game thread started");
+            } catch (Exception e) {
+                System.out.println("Error starting game thread: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } catch (Exception ex) {
+            System.out.println("Error in startGame(): " + ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 
-    public void showDayPanel() {
+    public void showDayScreen() {
         DayPanel dayPanel = new DayPanel(this);
         window.setContentPane(dayPanel);
         window.pack();
         window.setSize(1280, 720);
-    }
-
-    public void showStoryboard(List<Story> stories) {
-        window.getContentPane().removeAll();
-        window.getContentPane().add(new StoryboardPanel(this, stories));
-        window.revalidate();
-        window.repaint();
     }
 
     public void showSettings() {
