@@ -1,5 +1,3 @@
-package mypackage;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -23,7 +21,7 @@ public class DayPanel extends JPanel {
 
         // Load background
         try {
-            shopBackground = new ImageIcon(getClass().getResource("/mypackage/asset/shop.jpg")).getImage();
+            shopBackground = new ImageIcon(getClass().getResource("images/shop.jpg")).getImage();
         } catch (Exception e) {
             System.out.println("⚠️ shop.png not found!");
         }
@@ -111,4 +109,5 @@ public class DayPanel extends JPanel {
         g2.setColor(Color.BLACK);
         g2.drawString("Back", backButton.x + 25, backButton.y + 38);
     }
+
 }
