@@ -1,5 +1,3 @@
-package mypackage;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -80,7 +78,7 @@ public class SettingsPanel extends JPanel { // ✅ must extend JPanel
         JOptionPane.showMessageDialog(
             this,
             """
-            ABOUT US:
+            👨‍🍳 ABOUT US:
 
             Kitchen Master is a restaurant tycoon game
             developed by Gadget (#JavaGameDeveloper).
